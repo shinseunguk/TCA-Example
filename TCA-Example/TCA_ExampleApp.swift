@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
+
+// MARK: - App Entry Point
 
 @main
-struct TCA_ExampleApp: App {
+struct CounterApp: App {
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(store: Store(initialState: Feature.State(), reducer: { Feature()._printChanges() } ))
         }
     }
 }
